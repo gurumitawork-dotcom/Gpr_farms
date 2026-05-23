@@ -22,7 +22,7 @@ export const PRICING: Record<string, Record<string, number>> = {
   }
 };
 
-export const WHATSAPP_NUMBER = "+919999900000";
+export const WHATSAPP_NUMBER = "+919962115550";
 
 export const COUNTDOWN_TARGET = new Date("2025-08-15T00:00:00+05:30");
 
@@ -164,12 +164,12 @@ export const FAQ_ITEMS = [
 {
   id: 5,
   question: "Do you offer bulk or corporate orders?",
-  answer: "Yes! We offer bulk orders starting from 50kg for corporate gifting, employee wellness programs, and festive hampers. Custom branded packaging is available for orders above 100kg. Visit our Corporate Gifting page or WhatsApp us directly at +91 99999 00000."
+  answer: "Yes! We offer bulk orders starting from 50kg for corporate gifting, employee wellness programs, and festive hampers. Custom branded packaging is available for orders above 100kg. Visit our Corporate Gifting page or WhatsApp us directly at +91 99621 15550."
 }];
 
 
 export const STATS = [
-{ value: "40+", label: "Acres of Mango Orchards", icon: "🌿" },
+{ value: "10+", label: "Acres of Mango Orchards", icon: "🌿" },
 { value: "3", label: "Generations of Farming", icon: "👨‍🌾" },
 { value: "10K+", label: "Happy Families Served", icon: "🏠" },
 { value: "24hr", label: "Farm to Your Door", icon: "🚚" }];

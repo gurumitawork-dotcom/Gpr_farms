@@ -26,20 +26,20 @@ function OrderPromises() {
   const ref = useScrollReveal();
   return (
     <section
-      className="py-16 px-4 sm:px-6 bg-forest-deep border-t border-white/10"
+      className="py-12 sm:py-16 px-3 sm:px-6 bg-forest-deep border-t border-white/10"
       aria-label="Order promises and guarantees"
       ref={ref}
     >
-      <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {PROMISES.map((p, i) => (
           <div
             key={p.title}
-            className="scroll-reveal flex flex-col gap-3"
+            className="scroll-reveal flex flex-col gap-2 sm:gap-3"
             style={{ transitionDelay: `${i * 80}ms` }}
           >
-            <span className="text-3xl" aria-hidden="true">{p.icon}</span>
-            <h3 className="font-display font-bold text-white text-base">{p.title}</h3>
-            <p className="text-sm text-white/50 font-light leading-relaxed">{p.desc}</p>
+            <span className="text-2xl sm:text-3xl" aria-hidden="true">{p.icon}</span>
+            <h3 className="font-display font-bold text-white text-sm sm:text-base">{p.title}</h3>
+            <p className="text-xs sm:text-sm text-white/50 font-light leading-relaxed">{p.desc}</p>
           </div>
         ))}
       </div>
@@ -60,16 +60,16 @@ function QuickVarietyPicker({
   const BOX_SIZES = ['3kg', '5kg', '10kg'];
 
   return (
-    <div className="neumorphic-card p-6 mb-8">
-      <h2 className="font-display text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+    <div className="neumorphic-card p-4 sm:p-6 mb-6 sm:mb-8">
+      <h2 className="font-display text-base sm:text-lg font-bold text-foreground mb-3 sm:mb-4 flex items-center gap-2">
         <span aria-hidden="true">🥭</span> Quick Pick
       </h2>
-      <div className="flex flex-wrap gap-2 mb-4" role="group" aria-label="Select variety">
+      <div className="flex flex-wrap gap-2 mb-3 sm:mb-4" role="group" aria-label="Select variety">
         {VARIETIES.map((v) => (
           <button
             key={v}
             onClick={() => onSelect(v, selectedSize)}
-            className={`px-4 py-2 text-xs font-bold rounded-xl border transition-all duration-200 ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold rounded-xl border transition-all duration-200 ${
               selectedVariety === v
                 ? 'bg-primary text-primary-foreground border-primary shadow-md'
                 : 'bg-transparent text-muted-foreground border-border hover:border-primary hover:text-primary'
@@ -80,19 +80,20 @@ function QuickVarietyPicker({
           </button>
         ))}
       </div>
-      <div className="flex gap-2" role="group" aria-label="Select box size">
+      <div className="flex gap-2 flex-wrap sm:flex-nowrap" role="group" aria-label="Select box size">
         {BOX_SIZES.map((size) => (
           <button
             key={size}
             onClick={() => onSelect(selectedVariety, size)}
-            className={`flex-1 py-2 text-xs font-bold rounded-xl border transition-all duration-200 ${
+            className={`flex-1 min-w-fit py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold rounded-xl border transition-all duration-200 ${
               selectedSize === size
                 ? 'bg-secondary text-secondary-foreground border-secondary shadow-md'
                 : 'bg-transparent text-muted-foreground border-border hover:border-secondary hover:text-secondary'
             }`}
             aria-pressed={selectedSize === size}
           >
-            {size} — {formatPrice(PRICING[size]?.[selectedVariety] ?? 0)}
+            <span className="hidden xs:inline">{size} — </span>
+            {formatPrice(PRICING[size]?.[selectedVariety] ?? 0)}
           </button>
         ))}
       </div>
@@ -126,16 +127,16 @@ export default function OrderClient() {
           <div className="absolute inset-0 hero-overlay opacity-50" aria-hidden="true" />
           <div className="absolute top-1/2 right-1/4 w-80 h-80 blob-amber opacity-15 pointer-events-none -translate-y-1/2" aria-hidden="true" />
           <div className="relative z-10 max-w-3xl mx-auto text-center">
-            <div className="fade-in-up flex justify-center mb-6">
+            <div className="fade-in-up flex justify-center mb-4 sm:mb-6">
               <SectionLabel>
                 <span className="text-accent">Place Your Order</span>
               </SectionLabel>
             </div>
-            <h1 className="font-display text-hero-xl font-black text-white fade-in-up delay-100">
+            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white fade-in-up delay-100">
               Order<br />
               <span className="text-gradient-amber">Farm-Fresh.</span>
             </h1>
-            <p className="text-white/60 text-base font-light mt-6 fade-in-up delay-200 leading-relaxed">
+            <p className="text-white/60 text-sm sm:text-base font-light mt-4 sm:mt-6 fade-in-up delay-200 leading-relaxed">
               Fill in your details below. We'll confirm via WhatsApp and dispatch within hours of harvest.
             </p>
           </div>
@@ -143,15 +144,15 @@ export default function OrderClient() {
 
         {/* Order Content */}
         <section
-          className="py-16 px-4 sm:px-6 bg-background"
+          className="py-12 sm:py-16 px-3 sm:px-6 bg-background"
           ref={ref}
           aria-label="Order form and summary"
         >
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-12 gap-10 items-start">
+            <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 items-start">
 
               {/* Form — col-span-8 */}
-              <div className="lg:col-span-8 scroll-reveal">
+              <div className="lg:col-span-8 scroll-reveal w-full">
                 <QuickVarietyPicker
                   selectedVariety={summaryVariety}
                   selectedSize={summarySize}
@@ -164,7 +165,7 @@ export default function OrderClient() {
               </div>
 
               {/* Summary — col-span-4 */}
-              <div className="lg:col-span-4 scroll-reveal" style={{ transitionDelay: '150ms' }}>
+              <div className="lg:col-span-4 scroll-reveal w-full" style={{ transitionDelay: '150ms' }}>
                 <OrderSummary
                   variety={summaryVariety}
                   boxSize={summarySize}
@@ -172,19 +173,19 @@ export default function OrderClient() {
                 />
 
                 {/* Corporate CTA */}
-                <div className="neumorphic-card p-6 mt-6 forest-card text-center">
-                  <span className="text-3xl block mb-3" aria-hidden="true">🏢</span>
-                  <h3 className="font-display font-bold text-white text-base mb-2">
+                <div className="neumorphic-card p-4 sm:p-6 mt-4 sm:mt-6 forest-card text-center">
+                  <span className="text-2xl sm:text-3xl block mb-2 sm:mb-3" aria-hidden="true">🏢</span>
+                  <h3 className="font-display font-bold text-white text-sm sm:text-base mb-2">
                     Bulk / Corporate Order?
                   </h3>
-                  <p className="text-sm text-white/60 mb-4 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-white/60 mb-3 sm:mb-4 font-light leading-relaxed">
                     Orders above 50kg? Custom packaging available.
                   </p>
                   <a
-                    href={`https://wa.me/919999900000?text=${encodeURIComponent('Hi! I need a bulk/corporate mango order from GPR Farms.')}`}
+                    href={`https://wa.me/919962115550?text=${encodeURIComponent('Hi! I need a bulk/corporate mango order from GPR Farms.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center bg-[#25D366] text-white text-[10px] font-black uppercase tracking-[0.2em] px-5 py-3 rounded-xl hover:bg-[#1fbd5a] transition-colors"
+                    className="block w-full text-center bg-[#25D366] text-white text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] px-4 sm:px-5 py-2 sm:py-3 rounded-xl hover:bg-[#1fbd5a] transition-colors"
                     aria-label="Enquire about bulk orders on WhatsApp"
                   >
                     💬 WhatsApp for Bulk
@@ -192,8 +193,8 @@ export default function OrderClient() {
                 </div>
 
                 {/* Variety quick links */}
-                <div className="neumorphic-card p-6 mt-4">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
+                <div className="neumorphic-card p-4 sm:p-6 mt-3 sm:mt-4">
+                  <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground mb-2 sm:mb-3">
                     Not sure which variety?
                   </p>
                   <Link
@@ -236,7 +237,7 @@ export default function OrderClient() {
                 Read FAQ
               </Link>
               <a
-                href="https://wa.me/919999900000"
+                href="https://wa.me/919962115550"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[11px] font-semibold uppercase tracking-widest text-white bg-[#25D366] hover:bg-[#1fbd5a] transition-colors px-8 py-3 rounded-full"

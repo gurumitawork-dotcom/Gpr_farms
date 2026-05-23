@@ -40,21 +40,27 @@ export default function Header({ cartCount = 0, isBumping = false, onCartClick }
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
           isScrolled
-            ? 'bg-forest-deep/95 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-white/10'
+            ? 'bg-background/95 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-border'
             : 'bg-transparent'
         )}
         role="banner"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 h-16 sm:h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="GPR Farms Home">
-            <AppLogo size={38} />
-            <div className="flex flex-col">
-              <span className="font-display text-lg font-bold text-primary-foreground leading-tight tracking-tight group-hover:text-accent transition-colors">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0" aria-label="GPR Farms Home">
+            <AppLogo size={32} className="sm:w-[38px] sm:h-[38px]" />
+            <div className="flex flex-col hidden xs:flex">
+              <span className={cn(
+                'font-display text-sm sm:text-lg font-bold leading-tight tracking-tight group-hover:text-accent transition-colors',
+                isScrolled ? 'text-foreground' : 'text-white'
+              )}>
                 GPR Farms
               </span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/40 leading-none">
-                Est. 1982 · Andhra Pradesh
+              <span className={cn(
+                'font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.25em] leading-none transition-colors',
+                isScrolled ? 'text-foreground/60' : 'text-white/50'
+              )}>
+                Est. 2016 · TN
               </span>
             </div>
           </Link>
@@ -65,7 +71,12 @@ export default function Header({ cartCount = 0, isBumping = false, onCartClick }
               <Link
                 key={link.href}
                 href={link.href}
-                className="underline-expand text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors duration-300"
+                className={cn(
+                  'underline-expand text-[11px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300',
+                  isScrolled 
+                    ? 'text-foreground hover:text-accent' 
+                    : 'text-white hover:text-accent'
+                )}
               >
                 {link.label}
               </Link>
@@ -73,19 +84,24 @@ export default function Header({ cartCount = 0, isBumping = false, onCartClick }
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {/* Cart Button */}
             <button
               onClick={onCartClick}
-              className="relative flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300"
+              className={cn(
+                'relative flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-widest px-3 sm:px-4 py-2 rounded-full transition-all duration-300',
+                isScrolled
+                    ? 'bg-primary/20 hover:bg-primary/30 border border-primary/50 hover:border-primary text-primary font-bold'
+                    : 'bg-white/15 hover:bg-white/25 border border-white/30 hover:border-white/50 text-white'
+              )}
               aria-label={`Cart — ${cartCount} items`}
             >
-              <span>🥭</span>
-              <span className="hidden sm:inline">Cart</span>
+              <span className="text-sm sm:text-base">🥭</span>
+              <span className="hidden xs:inline">Cart</span>
               {cartCount > 0 && (
                 <span
                   className={cn(
-                    'absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] flex items-center justify-center bg-primary text-primary-foreground text-[10px] font-black rounded-full px-1',
+                    'absolute -top-1.5 -right-1.5 min-w-[16px] sm:min-w-[18px] h-4 sm:h-[18px] flex items-center justify-center bg-primary text-primary-foreground text-[9px] sm:text-[10px] font-black rounded-full px-0.5 sm:px-1',
                     isBumping && 'cart-bump'
                   )}
                   aria-live="polite"
@@ -98,10 +114,19 @@ export default function Header({ cartCount = 0, isBumping = false, onCartClick }
             {/* Order CTA */}
             <Link
               href="/order"
-              className="hidden sm:flex items-center gap-2 shimmer-btn text-primary-foreground text-[11px] font-black uppercase tracking-[0.2em] px-5 py-2.5 rounded-full shadow-lg hover:shadow-primary/30 transition-shadow duration-300"
+              className="hidden sm:flex items-center gap-2 shimmer-btn text-primary-foreground text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] px-3 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-primary/30 transition-shadow duration-300"
               aria-label="Order mangoes now"
             >
               Order Now
+            </Link>
+
+            {/* Mobile Order Button */}
+            <Link
+              href="/order"
+              className="sm:hidden px-3 py-2 text-[11px] font-black uppercase tracking-wider shimmer-btn text-primary-foreground rounded-full"
+              aria-label="Order"
+            >
+              Order
             </Link>
 
             {/* Mobile Hamburger */}
@@ -113,19 +138,28 @@ export default function Header({ cartCount = 0, isBumping = false, onCartClick }
             >
               <span
                 className={cn(
-                  'block h-0.5 bg-white rounded transition-all duration-300 origin-center',
+                  'block h-0.5 rounded transition-all duration-300 origin-center',
+                  isScrolled 
+                    ? 'bg-foreground' 
+                    : 'bg-white',
                   mobileOpen ? 'w-5 rotate-45 translate-y-2' : 'w-5'
                 )}
               />
               <span
                 className={cn(
-                  'block h-0.5 bg-white rounded transition-all duration-300',
+                  'block h-0.5 rounded transition-all duration-300',
+                  isScrolled 
+                    ? 'bg-foreground' 
+                    : 'bg-white',
                   mobileOpen ? 'w-0 opacity-0' : 'w-4'
                 )}
               />
               <span
                 className={cn(
-                  'block h-0.5 bg-white rounded transition-all duration-300 origin-center',
+                  'block h-0.5 rounded transition-all duration-300 origin-center',
+                  isScrolled 
+                    ? 'bg-foreground' 
+                    : 'bg-white',
                   mobileOpen ? 'w-5 -rotate-45 -translate-y-2' : 'w-5'
                 )}
               />

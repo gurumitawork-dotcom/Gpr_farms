@@ -20,27 +20,27 @@ function ComparisonTable() {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 bg-forest-deep"
+      className="py-12 sm:py-20 px-3 sm:px-6 bg-forest-deep"
       aria-labelledby="comparison-heading"
       ref={ref}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 scroll-reveal">
-          <SectionLabel className="justify-center mb-4">
+        <div className="text-center mb-8 sm:mb-12 scroll-reveal">
+          <SectionLabel className="justify-center mb-3 sm:mb-4">
             <span className="text-accent">Price Comparison</span>
           </SectionLabel>
-          <h2 id="comparison-heading" className="font-display text-section-xl font-black text-white">
+          <h2 id="comparison-heading" className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white">
             Find Your Box
           </h2>
         </div>
 
         <div className="scroll-reveal overflow-x-auto rounded-2xl border border-white/10">
-          <table className="w-full min-w-[600px]" aria-label="Mango pricing comparison table">
+          <table className="w-full min-w-[500px]" aria-label="Mango pricing comparison table">
             <thead>
               <tr className="bg-forest-mid/60 border-b border-white/10">
-                <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-white/50">Variety</th>
+                <th className="text-left px-3 sm:px-6 py-3 sm:py-4 font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-white/50">Variety</th>
                 {BOX_SIZES.map((size) => (
-                  <th key={size} className="px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-accent text-center">{size}</th>
+                  <th key={size} className="px-3 sm:px-6 py-3 sm:py-4 font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-accent text-center">{size}</th>
                 ))}
               </tr>
             </thead>
@@ -50,18 +50,18 @@ function ComparisonTable() {
                   key={v.id}
                   className="hover:bg-white/5 transition-colors duration-200"
                 >
-                  <td className="px-6 py-5">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl" aria-hidden="true">{v.emoji}</span>
+                  <td className="px-3 sm:px-6 py-3 sm:py-5">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <span className="text-xl sm:text-2xl" aria-hidden="true">{v.emoji}</span>
                       <div>
-                        <p className="font-display font-semibold text-white text-base">{v.name}</p>
-                        <p className="font-mono text-[10px] text-white/40">{v.teluguName}</p>
+                        <p className="font-display font-semibold text-white text-sm sm:text-base">{v.name}</p>
+                        <p className="font-mono text-[8px] sm:text-[10px] text-white/40">{v.teluguName}</p>
                       </div>
                     </div>
                   </td>
                   {BOX_SIZES.map((size) => (
-                    <td key={size} className="px-6 py-5 text-center">
-                      <span className="price-tag font-bold text-primary text-base">{formatPrice(PRICING[size][v.name])}</span>
+                    <td key={size} className="px-3 sm:px-6 py-3 sm:py-5 text-center">
+                      <span className="price-tag font-bold text-primary text-sm sm:text-base">{formatPrice(PRICING[size][v.name])}</span>
                     </td>
                   ))}
                 </tr>
@@ -70,10 +70,10 @@ function ComparisonTable() {
           </table>
         </div>
 
-        <div className="mt-8 text-center scroll-reveal" style={{ transitionDelay: '200ms' }}>
+        <div className="mt-6 sm:mt-8 text-center scroll-reveal" style={{ transitionDelay: '200ms' }}>
           <Link
             href="/order"
-            className="inline-flex items-center gap-2 shimmer-btn text-primary-foreground text-[11px] font-black uppercase tracking-[0.25em] px-10 py-4 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center gap-2 shimmer-btn text-primary-foreground text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300"
           >
             🥭 Order Now — Free Shipping
           </Link>
@@ -102,37 +102,37 @@ export default function VarietiesClient() {
       <main id="main-content">
         {/* Page Hero */}
         <section
-          className="relative pt-40 pb-20 px-4 sm:px-6 bg-forest-deep overflow-hidden grain-texture"
+          className="relative pt-24 sm:pt-40 pb-12 sm:pb-20 px-3 sm:px-6 bg-forest-deep overflow-hidden grain-texture"
           aria-labelledby="varieties-page-heading"
         >
           <div className="absolute inset-0 hero-overlay opacity-60" aria-hidden="true" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blob-amber opacity-15 pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-96 md:w-[600px] h-64 sm:h-96 md:h-[600px] blob-amber opacity-15 pointer-events-none" aria-hidden="true" />
 
           <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <div className="fade-in-up flex justify-center mb-6">
+            <div className="fade-in-up flex justify-center mb-4 sm:mb-6">
               <SectionLabel>
-                <span className="text-accent">GPR Farms · Andhra Pradesh</span>
+                <span className="text-accent">GPR Farms · AP</span>
               </SectionLabel>
             </div>
-            <h1 className="font-display text-hero-xl font-black text-white fade-in-up delay-100">
+            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white fade-in-up delay-100">
               Four Varieties.<br />
               <span className="text-gradient-amber">One Farm.</span>
             </h1>
-            <p className="text-base sm:text-lg text-white/60 font-light max-w-xl mx-auto mt-6 fade-in-up delay-200 leading-relaxed">
-              Tree-ripened on our 40-acre orchard in Krishnampalem. Harvested to order. Delivered across India within 24 hours.
+            <p className="text-xs sm:text-base md:text-lg text-white/60 font-light max-w-xl mx-auto mt-4 sm:mt-6 fade-in-up delay-200 leading-relaxed px-2">
+              Tree-ripened on our orchard. Harvested to order. Delivered across India within 24 hours.
             </p>
           </div>
         </section>
 
         {/* Varieties Grid */}
         <section
-          className="py-20 px-4 sm:px-6 bg-background"
+          className="py-12 sm:py-20 px-3 sm:px-6 bg-background"
           aria-labelledby="varieties-grid-heading"
           ref={ref}
         >
           <div className="max-w-7xl mx-auto">
             <h2 id="varieties-grid-heading" className="sr-only">All Mango Varieties</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {VARIETIES.map((v, i) => (
                 <div
                   key={v.id}

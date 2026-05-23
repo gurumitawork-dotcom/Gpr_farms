@@ -11,22 +11,22 @@ export default function TestimonialsSection() {
 
   return (
     <section
-      className="py-24 px-4 sm:px-6 bg-forest-deep overflow-hidden"
+      className="py-16 sm:py-24 px-3 sm:px-6 bg-forest-deep overflow-hidden"
       aria-labelledby="testimonials-heading"
       ref={ref}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 lg:gap-24 items-start">
           {/* Left: Headline + Featured Quote */}
           <div className="lg:w-1/3 scroll-reveal">
-            <SectionLabel className="mb-6">
+            <SectionLabel className="mb-4 sm:mb-6">
               <span className="text-accent">What Customers Say</span>
             </SectionLabel>
-            <h2 id="testimonials-heading" className="font-display text-card-title font-bold text-white leading-tight mb-8">
+            <h2 id="testimonials-heading" className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight mb-6 sm:mb-8">
               "Finally, mangoes that taste like childhood."
             </h2>
-            <div className="flex items-center gap-3 mt-6">
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-accent/30">
+            <div className="flex items-center gap-3 mt-4 sm:mt-6">
+              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-accent/30 flex-shrink-0">
                 <AppImage
                   src={TESTIMONIALS?.[0]?.image}
                   alt={TESTIMONIALS?.[0]?.imageAlt}
@@ -35,16 +35,16 @@ export default function TestimonialsSection() {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <div>
-                <p className="text-sm font-semibold text-white">{TESTIMONIALS?.[0]?.name}</p>
-                <p className="text-[10px] uppercase tracking-widest text-white/40">{TESTIMONIALS?.[0]?.city} · {TESTIMONIALS?.[0]?.variety}</p>
+              <div className="min-w-0">
+                <p className="text-xs sm:text-sm font-semibold text-white truncate">{TESTIMONIALS?.[0]?.name}</p>
+                <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-white/40">{TESTIMONIALS?.[0]?.city} · {TESTIMONIALS?.[0]?.variety}</p>
               </div>
             </div>
           </div>
 
           {/* Right: Horizontal scroll cards */}
           <div
-            className="lg:w-2/3 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
+            className="lg:w-2/3 flex gap-3 sm:gap-4 overflow-x-auto pb-3 sm:pb-4 snap-x snap-mandatory w-full"
             style={{ scrollbarWidth: 'none' }}
             role="list"
             aria-label="Customer testimonials"

@@ -11,64 +11,136 @@ export default function FAQSection() {
 
   return (
     <section
-      className="py-24 px-4 sm:px-6 bg-background"
+      className="relative py-20 sm:py-28 px-4 sm:px-6 bg-gradient-to-b from-[#fffdf8] to-[#f7f4ed]"
       aria-labelledby="faq-heading"
       ref={ref}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16 scroll-reveal">
+        
+        {/* Header */}
+        <div className="text-center mb-14 sm:mb-20 scroll-reveal">
           <SectionLabel className="justify-center mb-4">
             Common Questions
           </SectionLabel>
-          <h2 id="faq-heading" className="font-display text-section-xl font-black text-foreground">
-            Got Questions?
+
+          <h2
+            id="faq-heading"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground tracking-tight"
+          >
+            Frequently Asked Questions
           </h2>
+
+          <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Everything you need to know about our farms, mango varieties,
+            delivery process, and seasonal harvests.
+          </p>
         </div>
 
-        <div className="space-y-3" role="list">
+        {/* FAQ */}
+        <div className="space-y-5">
           {FAQ_ITEMS?.map((item, i) => {
             const isOpen = openId === item?.id;
+
             return (
               <div
                 key={item?.id}
-                className={`scroll-reveal faq-item ${isOpen ? 'active' : ''} border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-accent/30 bg-cream-light' : 'border-border bg-muted hover:border-accent/20'}`}
-                style={{ transitionDelay: `${i * 60}ms` }}
-                role="listitem"
+                className={`group rounded-3xl border transition-all duration-500 overflow-hidden backdrop-blur-md
+                ${
+                  isOpen
+                    ? 'bg-white shadow-2xl border-[#f4b63d]/40'
+                    : 'bg-white/70 border-black/5 hover:border-[#f4b63d]/30 hover:shadow-lg'
+                }`}
+                style={{
+                  transitionDelay: `${i * 70}ms`,
+                }}
               >
                 <button
-                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-2xl"
-                  onClick={() => setOpenId(isOpen ? null : item?.id)}
+                  onClick={() =>
+                    setOpenId(isOpen ? null : item?.id)
+                  }
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${item?.id}`}
+                  className="w-full flex items-center justify-between gap-5 px-6 sm:px-8 py-6 text-left"
                 >
-                  <span className="font-display text-base sm:text-lg font-semibold text-foreground pr-4">
-                    {item?.question}
-                  </span>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={`faq-chevron flex-shrink-0 text-muted-foreground transition-transform duration-300 ${isOpen ? 'rotate-180 text-accent' : ''}`}
-                    aria-hidden="true"
+                  <div className="flex items-start gap-4">
+                    
+                    {/* Number */}
+                    <div
+                      className={`min-w-[42px] h-[42px] rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300
+                      ${
+                        isOpen
+                          ? 'bg-[#f4b63d] text-black'
+                          : 'bg-[#f5f5f5] text-muted-foreground group-hover:bg-[#fff3d8]'
+                      }`}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
+
+                    {/* Question */}
+                    <div>
+                      <h3 className="font-display text-base sm:text-lg lg:text-xl font-bold text-foreground leading-snug">
+                        {item?.question}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Chevron */}
+                  <div
+                    className={`min-w-[40px] h-[40px] rounded-full flex items-center justify-center transition-all duration-300
+                    ${
+                      isOpen
+                        ? 'bg-[#f4b63d]/20 rotate-180'
+                        : 'bg-black/5 group-hover:bg-[#f4b63d]/10'
+                    }`}
                   >
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={`transition-colors duration-300 ${
+                        isOpen
+                          ? 'text-[#d48a00]'
+                          : 'text-muted-foreground'
+                      }`}
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
                 </button>
+
+                {/* Answer */}
                 <div
                   id={`faq-answer-${item?.id}`}
-                  className="faq-answer px-6"
-                  role="region"
-                  aria-labelledby={`faq-q-${item?.id}`}
+                  className={`grid transition-all duration-500 ease-in-out
+                  ${
+                    isOpen
+                      ? 'grid-rows-[1fr] opacity-100'
+                      : 'grid-rows-[0fr] opacity-0'
+                  }`}
                 >
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {item?.answer}
-                  </p>
+                  <div className="overflow-hidden">
+                    <div className="px-6 sm:px-8 pb-7 pl-[84px]">
+                      <p className="text-sm sm:text-base leading-8 text-foreground/75">
+                        {item?.answer}
+                      </p>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Accent line */}
+                <div
+                  className={`h-1 transition-all duration-500
+                  ${
+                    isOpen
+                      ? 'bg-gradient-to-r from-[#f4b63d] via-[#ffcf70] to-[#f4b63d]'
+                      : 'bg-transparent'
+                  }`}
+                />
               </div>
             );
           })}

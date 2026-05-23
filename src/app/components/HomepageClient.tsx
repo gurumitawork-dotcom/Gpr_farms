@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/home/HeroSection';
+import PromotionalBanner from '@/components/home/PromotionalBanner';
 import WhyGPRSection from '@/components/home/WhyGPRSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import FAQSection from '@/components/home/FAQSection';
@@ -30,22 +31,22 @@ function VarietiesPreviewSection({
 
   return (
     <section
-      className="py-24 px-4 sm:px-6 bg-background"
+      className="py-16 sm:py-24 px-3 sm:px-6 bg-background"
       aria-labelledby="varieties-preview-heading"
       ref={ref}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12">
-          <div className="scroll-reveal">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-6 mb-8 sm:mb-12">
+          <div className="scroll-reveal w-full sm:w-auto">
             <SectionLabel>Our Varieties</SectionLabel>
-            <h2 id="varieties-preview-heading" className="font-display text-section-xl font-black text-foreground mt-3">
+            <h2 id="varieties-preview-heading" className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground mt-2 sm:mt-3">
               Four Varieties.<br />
               <span className="text-gradient-amber">One Farm.</span>
             </h2>
           </div>
           <a
             href="/varieties"
-            className="scroll-reveal underline-expand text-sm font-semibold text-primary uppercase tracking-wider"
+            className="scroll-reveal underline-expand text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider whitespace-nowrap"
             style={{ transitionDelay: '150ms' }}
           >
             View All Details →
@@ -77,20 +78,20 @@ function StatsSection() {
   const ref = useScrollReveal();
   return (
     <section
-      className="py-16 px-4 sm:px-6 bg-forest-deep border-y border-white/10"
+      className="py-12 sm:py-16 px-3 sm:px-6 bg-forest-deep border-y border-white/10"
       aria-label="GPR Farms statistics"
       ref={ref}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
         {STATS.map((stat, i) => (
           <div
             key={stat.label}
-            className="scroll-reveal flex flex-col items-center text-center gap-2"
+            className="scroll-reveal flex flex-col items-center text-center gap-1.5 sm:gap-2"
             style={{ transitionDelay: `${i * 80}ms` }}
           >
-            <span className="text-3xl" aria-hidden="true">{stat.icon}</span>
-            <span className="font-display text-3xl sm:text-4xl font-black text-accent">{stat.value}</span>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-white/50">{stat.label}</span>
+            <span className="text-2xl sm:text-3xl" aria-hidden="true">{stat.icon}</span>
+            <span className="font-display text-2xl sm:text-3xl md:text-4xl font-black text-accent">{stat.value}</span>
+            <span className="font-mono text-[8px] sm:text-[10px] uppercase tracking-widest text-white/50">{stat.label}</span>
           </div>
         ))}
       </div>
@@ -112,6 +113,7 @@ export default function HomepageClient() {
       <Header cartCount={count} isBumping={isBumping} />
       <main id="main-content">
         <HeroSection />
+        <PromotionalBanner />
         <StatsSection />
         <WhyGPRSection />
         <VarietiesPreviewSection onAddToCart={handleAddToCart} />

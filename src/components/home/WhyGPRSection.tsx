@@ -36,17 +36,17 @@ export default function WhyGPRSection() {
 
   return (
     <section
-      className="py-24 px-4 sm:px-6 bg-cream-mid relative overflow-hidden"
+      className="py-16 sm:py-24 px-3 sm:px-6 bg-cream-mid relative overflow-hidden"
       aria-labelledby="why-gpr-heading"
       ref={ref}
     >
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-80 h-80 blob-forest opacity-40 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-0 right-0 w-48 sm:w-80 h-48 sm:h-80 blob-forest opacity-40 pointer-events-none" aria-hidden="true" />
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12 items-start mb-16">
+        <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-start mb-12 sm:mb-16">
           <div className="lg:col-span-5 scroll-reveal">
             <SectionLabel>Why GPR Farms</SectionLabel>
-            <h2 id="why-gpr-heading" className="font-display text-section-xl font-black text-foreground mt-4 leading-tight">
+            <h2 id="why-gpr-heading" className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground mt-3 sm:mt-4 leading-tight">
               The Mango Market<br />
               <span className="text-gradient-amber">Has a Problem.</span>
             </h2>

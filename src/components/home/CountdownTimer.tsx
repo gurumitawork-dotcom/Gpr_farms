@@ -22,20 +22,20 @@ function TimeBlock({ value, label }: { value: number; label: string }) {
 export default function CountdownTimer() {
   const time = useCountdown(COUNTDOWN_TARGET);
 
-  return (
-    <div className="flex flex-col items-center gap-4" role="timer" aria-label="Countdown to harvest season">
-      <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
-        🌞 Harvest Season Ends
-      </p>
-      <div className="flex items-end gap-2 sm:gap-4">
-        <TimeBlock value={time.days} label="Days" />
-        <span className="text-2xl font-bold text-muted-foreground/40 pb-5" aria-hidden="true">:</span>
-        <TimeBlock value={time.hours} label="Hours" />
-        <span className="text-2xl font-bold text-muted-foreground/40 pb-5" aria-hidden="true">:</span>
-        <TimeBlock value={time.minutes} label="Mins" />
-        <span className="text-2xl font-bold text-muted-foreground/40 pb-5" aria-hidden="true">:</span>
-        <TimeBlock value={time.seconds} label="Secs" />
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className="flex flex-col items-center gap-4" role="timer" aria-label="Countdown to harvest season">
+  //     <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
+  //       🌞 Harvest Season Ends
+  //     </p>
+  //     <div className="flex items-end gap-2 sm:gap-4">
+  //       <TimeBlock value={time.days} label="Days" />
+  //       <span className="text-2xl font-bold text-muted-foreground/40 pb-5" aria-hidden="true">:</span>
+  //       <TimeBlock value={time.hours} label="Hours" />
+  //       <span className="text-2xl font-bold text-muted-foreground/40 pb-5" aria-hidden="true">:</span>
+  //       <TimeBlock value={time.minutes} label="Mins" />
+  //       <span className="text-2xl font-bold text-muted-foreground/40 pb-5" aria-hidden="true">:</span>
+  //       <TimeBlock value={time.seconds} label="Secs" />
+  //     </div>
+  //   </div>
+  // );
 }
