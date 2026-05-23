@@ -45,7 +45,7 @@ export default function HeroSection() {
             <div className="fade-in-up flex items-center gap-3 mb-6">
               <div className="w-10 h-[1px] bg-accent" aria-hidden="true" />
               <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-                Est. 1982 · Krishnampalem, AP
+                Est. 2016 · Perumanallur, TN
               </span>
             </div>
 
