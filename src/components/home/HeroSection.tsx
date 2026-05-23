@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <AppImage
           src="https://img.rocket.new/generatedImages/rocket_gen_img_1621209a6-1767949399635.png"
-          alt="Lush mango orchard in Andhra Pradesh with golden mangoes hanging from trees in warm afternoon sunlight, deep green canopy with dappled light"
+          alt="Lush mango orchard in Tamil Nadu with golden mangoes hanging from trees in warm afternoon sunlight, deep green canopy with dappled light"
           fill
           priority
           className="object-cover object-[65%_center] sm:object-center"

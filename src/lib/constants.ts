@@ -144,7 +144,7 @@ export const FAQ_ITEMS = [
 {
   id: 1,
   question: "Are your mangoes actually carbide-free?",
-  answer: "Yes, 100%. We never use calcium carbide or ethephon to ripen our mangoes. Every fruit is tree-ripened on our farm in Krishnampalem, Andhra Pradesh. We harvest only when the fruit naturally begins to detach from the tree. You can taste the difference — there's no chemical aftertaste, just pure sweetness."
+  answer: "Yes, 100%. We never use calcium carbide or ethephon to ripen our mangoes. Every fruit is tree-ripened on our farm. We harvest only when the fruit naturally begins to detach from the tree. You can taste the difference — there's no chemical aftertaste, just pure sweetness."
 },
 {
   id: 2,

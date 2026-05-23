@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="font-display text-lg sm:text-xl font-bold text-white">GPR Farms</span>
             </div>
             <p className="text-xs sm:text-sm text-white/50 font-light leading-relaxed">
-              Tree-ripened. Carbide-free. Delivered from our orchards in Andhra Pradesh since 1982.
+              Tree-ripened. Carbide-free. Delivered from our orchards in Tamil Nadu since 2016.
             </p>
             <div className="flex items-center gap-2 sm:gap-3 mt-1 sm:mt-2">
               <a

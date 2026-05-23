@@ -4,7 +4,7 @@ import OrderClient from './components/OrderClient';
 
 export const metadata: Metadata = {
   title: 'Order Fresh Mangoes Online | Free Delivery | GPR Farms',
-  description: 'Order carbide-free, tree-ripened Andhra mangoes online. Choose from Banganapalli, Mallika, Neelam, Himayat. Free pan-India shipping. Delivered in 24 hours.',
+  description: 'Order carbide-free, tree-ripened mangoes online. Choose from Banganapalli, Mallika, Neelam, Himayat. Free pan-India shipping. Delivered in 24 hours.',
   keywords: ['order mangoes online', 'buy Banganapalli mango', 'farm fresh mango delivery', 'GPR Farms order'],
   alternates: { canonical: '/order' },
   robots: { index: true, follow: true },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Order GPR Farms Mangoes',
-    description: 'Carbide-free Andhra mangoes. Free shipping. Delivered in 24 hours.',
+    description: 'Carbide-free mangoes. Free shipping. Delivered in 24 hours.',
   },
 };
 
