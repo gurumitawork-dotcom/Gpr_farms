@@ -111,7 +111,7 @@ export default function VarietiesClient() {
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <div className="fade-in-up flex justify-center mb-4 sm:mb-6">
               <SectionLabel>
-                <span className="text-accent">GPR Farms · AP</span>
+                <span className="text-accent">GPR Farms · TN</span>
               </SectionLabel>
             </div>
             <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white fade-in-up delay-100">
