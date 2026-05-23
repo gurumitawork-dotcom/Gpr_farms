@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: 'GPR Farms – Premium Farm-Fresh Mangoes from Andhra Pradesh',
+  title: 'GPR Farms – Premium Farm-Fresh Mangoes',
   description: 'Order 100% carbide-free, tree-ripened mangoes direct from our Andhra Pradesh farm. Banganapalli, Mallika, Neelam & Himayat varieties. Free pan-India shipping.',
   keywords: ['GPR Farms', 'mangoes', 'Banganapalli', 'Himayat', 'carbide-free', 'Andhra Pradesh', 'farm fresh mangoes', 'tree ripened mangoes'],
   openGraph: {
